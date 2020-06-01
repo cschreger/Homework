@@ -7,15 +7,16 @@ class GraphNode
     end
 
     
-    def bfs(start_node, target, visited = Set.new())
+    def bfs(start_node, target)
         queue = [start_node]
+        visited = Set.new()
         
         while !queue.empty?
             first = queue.shift
-            visited.add(queue.shift)
-            return first if first.value == target_value
-            first.children.each do |child|
-                queue << child if !visited.include?(child)
+            if !visited.include?(first)
+                return first if first.value == target_value
+                visited.add(first)
+                queue += first.neighbors
             end
         end 
         nil
