@@ -1,48 +1,49 @@
-function madLib(verb, adj, noun) {
-    return "We shall ${verb.toUpperCase()} the ${adj.toUpperCase()} ${noun.toUpperCase()}"
+//Phase I
+
+function madLib(verb, adj, noun){
+    return `We shall ${verb.toUpperCase()} the ${adj.toUpperCase()} ${noun.toUpperCase()}`
 }
 
-function isSubstring(string, sub) {
-    return string.includes(sub)
+function isSubstring(searchString, subString){
+    return searchString.includes(subString)
 }
 
-// part II
+//Phase II
 
 function fizzBuzz(array) {
-    const fizzed = [];
-
-    array.forEach(el => {
-        if ((el % 3 === 0) ^ (el % 5 === 0)) {
-            fizzed.push(el)
+    let res = []
+    
+    array.forEach(ele => {
+        if (ele % 3 === 0 ^ ele % 5 === 0) {
+            res.push(ele)
         }
-    });
+    })
 
-    return fizzed;
+    return res
 }
 
 
 function isPrime(num) {
-    if (n < 2) {return false;}
+    if (num < 2) return false;
 
-    for (let i = 2; i < n; i ++) {
-        if (i % num === 0) {return false;}
+    for(let i = 2; i < num; i++) {
+        if (num % i === 0) return false;
     }
 
-    return true;
+    return true
 }
 
+
 function sumOfNPrimes(n) {
-    let sum = 0
-    let primeCount = 0
-    let i = 2 
-
-    while (primeCount > n) {
-        if (isPrime(n)) {
-            sum += i 
-            primeCount++
+    let final = 0;
+    let count = 0;
+   
+    for(let i = 2; count < n; i++) {
+        if (isPrime(i)) {
+            final += i;
+            count += 1;
         }
-        i++
     }
-
-    return sum;
+    
+    return final;
 }
